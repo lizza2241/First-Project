@@ -1,0 +1,65 @@
+create a file that contains 1000 lines of random strings
+import random
+import string
+
+# Settings
+lines = 1000
+length = 16  # Length of each random string
+filename = "random_strings.txt"
+
+# Function to generate a random string
+def random_string(length):
+    characters = string.ascii_letters + string.digits
+    return ''.join(random.choices(characters, k=length))
+
+# Write to file
+with open(filename, 'w') as f:
+    for _ in range(lines):
+        f.write(random_string(length) + '\n')
+
+print(f"{lines} lines of random strings written to {filename}")
+ create a file that contains multiple lines of random strings and file size be 5mb 
+import os
+import random
+import string
+
+# Settings
+filename = "random_strings_5mb.txt"
+target_size = 5 * 1024 * 1024  # 5 MB in bytes
+line_length = 100  # Length of each random string per line
+
+# Function to generate a random string
+def random_string(length):
+    characters = string.ascii_letters + string.digits
+    return ''.join(random.choices(characters, k=length))
+
+# Create the file
+with open(filename, 'w') as f:
+    while f.tell() < target_size:
+        line = random_string(line_length)
+        f.write(line + '\n')
+
+# Confirm file size
+print(f"{filename} created with size {os.path.getsize(filename)} bytes")
+import os
+import random
+import string
+
+# Settings
+filename = "random_strings_5mb.txt"
+target_size = 5 * 1024 * 1024  # 5 MB in bytes
+line_length = 100  # Length of each random string per line
+
+# Function to generate a random string
+def random_string(length):
+    characters = string.ascii_letters + string.digits
+    return ''.join(random.choices(characters, k=length))
+
+# Create the file
+with open(filename, 'w') as f:
+    while f.tell() < target_size:
+        line = random_string(line_length)
+        f.write(line + '\n')
+
+# Confirm file size
+print(f"{filename} created with size {os.path.getsize(filename)} bytes")
